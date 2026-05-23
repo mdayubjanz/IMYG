@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Indian Muslim Youth Group</title>
+<title>IMYG • Indian Muslim Youth Group</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -20,7 +20,7 @@ scroll-behavior:smooth;
 }
 
 body{
-background:#04120d;
+background:#050505;
 color:white;
 overflow-x:hidden;
 }
@@ -826,8 +826,8 @@ display:none !important;
 
 </style>
 
-<section class="hero" id="home" style="background:linear-gradient(rgba(0,0,0,0.78),rgba(0,0,0,0.82)),url('https://images.unsplash.com/photo-1519817914152-22f90e0d9179?q=80&w=1600&auto=format&fit=crop') center/cover fixed no-repeat; position:relative;">
-<div style="position:absolute;inset:0;background:rgba(0,0,0,0.72);"></div>
+<section class="hero" id="home" style="background:linear-gradient(rgba(0,0,0,0.72),rgba(0,0,0,0.82)),url('https://images.unsplash.com/photo-1564769625905-50e93615e769?q=80&w=1800&auto=format&fit=crop') center/cover fixed no-repeat; position:relative;">
+
 <div class="hero-content fade">
 
 <div class="badge">
@@ -835,11 +835,12 @@ India's Modern Muslim Gen Z Community • Islamic • Educational • Creative
 </div>
 
 <h1>
-Empowering <span>Indian Muslim Youth</span> Through Education, Unity, Innovation & Islamic Values
+Modern <span>Indian Muslim Youth</span><br>
+Community Platform
 </h1>
 
 <p>
-Indian Muslim Youth Group is a next generation youth community platform designed to inspire leadership, knowledge, creativity, entrepreneurship, unity, digital growth, and social responsibility among Muslim youth across India. Our vision is to build a modern, educated, positive, and connected generation that contributes toward a stronger future through technology, learning, collaboration, and community development.
+A premium modern community platform for Indian Muslim youth focused on education, creativity, technology, leadership, networking, and positive digital growth. Designed with a clean Gen Z experience, Islamic cultural aesthetics, and a luxury dark interface.
 </p>
 
 <div class="hero-buttons">
@@ -847,40 +848,94 @@ Indian Muslim Youth Group is a next generation youth community platform designed
 <button class="btn secondary-btn">Learn More</button>
 </div>
 
-<div class="hero-grid">
-
-<div class="hero-card">
-<h3>Education</h3>
-<p>
-Providing students with educational resources, MCQ practice systems, digital learning opportunities, mentorship support, career guidance, and academic growth.
-</p>
-</div>
-
-<div class="hero-card">
-<h3>Technology</h3>
-<p>
-Encouraging coding, app development, AI tools, website creation, freelancing, content creation, and digital innovation among youth.
-</p>
-</div>
-
-<div class="hero-card">
-<h3>Community</h3>
-<p>
-Building unity, respect, collaboration, and positivity among youth through social activities, awareness programs, and inspiring projects.
-</p>
-</div>
-
-<div class="hero-card">
-<h3>Leadership</h3>
-<p>
-Supporting future leaders with confidence building, communication skills, teamwork, project management, and entrepreneurship opportunities.
-</p>
-</div>
-
+<div class="hero-buttons">
+<button class="btn primary-btn" onclick="openJoinForm()">Join Community</button>
+<button class="btn secondary-btn" onclick="scrollAbout()">Explore</button>
 </div>
 
 </div>
 </section>
+
+<!-- JOIN FORM -->
+<div class="join-popup" id="joinPopup">
+<div class="join-box">
+<div class="join-close" onclick="closeJoinForm()">✕</div>
+<h2>Join IMYG</h2>
+<input type="text" placeholder="Your Name">
+<input type="email" placeholder="Email Address">
+<input type="text" placeholder="City / State">
+<textarea placeholder="Tell us about yourself"></textarea>
+<button onclick="submitJoin()">Submit Application</button>
+</div>
+</div>
+
+<style>
+.join-popup{
+position:fixed;
+inset:0;
+background:rgba(0,0,0,0.75);
+backdrop-filter:blur(8px);
+display:none;
+align-items:center;
+justify-content:center;
+z-index:999999;
+padding:20px;
+}
+
+.join-popup.active{
+display:flex;
+}
+
+.join-box{
+width:100%;
+max-width:500px;
+background:#0b0b0b;
+padding:35px;
+border-radius:30px;
+border:1px solid rgba(255,255,255,0.08);
+position:relative;
+}
+
+.join-close{
+position:absolute;
+right:20px;
+top:20px;
+font-size:24px;
+cursor:pointer;
+}
+
+.join-box h2{
+margin-bottom:25px;
+font-size:34px;
+}
+
+.join-box input,
+.join-box textarea{
+width:100%;
+margin-bottom:16px;
+padding:16px;
+background:#121212;
+border:none;
+border-radius:16px;
+color:white;
+}
+
+.join-box textarea{
+height:120px;
+resize:none;
+}
+
+.join-box button{
+width:100%;
+padding:16px;
+border:none;
+border-radius:16px;
+background:white;
+color:black;
+font-weight:800;
+cursor:pointer;
+}
+</style>
 
 <section id="about">
 
@@ -1218,6 +1273,23 @@ India Based Youth Community Supporting Education, Growth, Innovation, and Positi
 
 <script>
 
+function openJoinForm(){
+document.getElementById('joinPopup').classList.add('active');
+}
+
+function closeJoinForm(){
+document.getElementById('joinPopup').classList.remove('active');
+}
+
+function submitJoin(){
+alert('Application Submitted Successfully');
+closeJoinForm();
+}
+
+function scrollAbout(){
+document.getElementById('about').scrollIntoView({behavior:'smooth'});
+}
+
 function openSidebar(){
 document.getElementById('sidebar').classList.add('active');
 }
@@ -1271,4 +1343,4 @@ window.dispatchEvent(new Event('scroll'));
 <!-- Removed ugly Google Translate widget for premium UI -->
 
 </body>
-</html>
+  </html>
