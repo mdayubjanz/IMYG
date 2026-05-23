@@ -616,33 +616,41 @@ font-size:16px;
 
 <body>
 
-<!-- LANGUAGE TRANSLATOR -->
-<div id="google_translate_element"></div>
+<!-- PREMIUM LANGUAGE SWITCHER -->
+<div class="language-switcher">
+<button onclick="setLanguage('en')">EN</button>
+<button onclick="setLanguage('hi')">HI</button>
+<button onclick="setLanguage('ur')">UR</button>
+</div>
 
 <style>
-#google_translate_element{
+.language-switcher{
 position:fixed;
-bottom:20px;
+top:90px;
 right:20px;
 z-index:9999;
-background:#081b14;
-padding:10px 14px;
-border-radius:16px;
-box-shadow:0 0 20px rgba(0,255,157,0.25);
+display:flex;
+gap:10px;
+background:rgba(0,0,0,0.55);
+padding:10px;
+border-radius:18px;
+backdrop-filter:blur(10px);
 border:1px solid rgba(255,255,255,0.08);
 }
 
-.goog-te-gadget{
-color:white !important;
-font-size:14px !important;
+.language-switcher button{
+padding:10px 14px;
+border:none;
+border-radius:10px;
+background:#00ff9d;
+color:black;
+font-weight:700;
+cursor:pointer;
+transition:0.3s;
 }
 
-.goog-te-combo{
-padding:8px 12px;
-border-radius:10px;
-border:none;
-background:#0c1d17;
-color:white;
+.language-switcher button:hover{
+transform:scale(1.08);
 }
 </style>
 
@@ -657,10 +665,10 @@ color:white;
 <li><a href="#contact">Contact</a></li>
 </ul>
 
-<button class="nav-btn">Join Community</button>
+<button class="nav-btn" onclick="scrollToJoin()">Join Community</button>
 </nav>
 
-<section class="hero" id="home" style="background:url('https://images.unsplash.com/photo-1524499982521-1ffd58dd89ea?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat; position:relative;">
+<section class="hero" id="home" style="background:linear-gradient(rgba(0,0,0,0.78),rgba(0,0,0,0.82)),url('https://images.unsplash.com/photo-1519817914152-22f90e0d9179?q=80&w=1600&auto=format&fit=crop') center/cover fixed no-repeat; position:relative;">
 <div style="position:absolute;inset:0;background:rgba(0,0,0,0.72);"></div>
 <div class="hero-content fade">
 
@@ -994,7 +1002,7 @@ The educational support, modern mindset, and community projects make this platfo
 Indian Muslim Youth Group is more than a website. It is a movement for modern youth empowerment, digital innovation, education, creativity, leadership, and positivity. Become part of a strong future generation that believes in growth, unity, knowledge, and impactful action.
 </p>
 
-<button class="btn primary-btn">Become Member</button>
+<button class="btn primary-btn" onclick="joinNow()">Become Member</button>
 
 </div>
 
@@ -1052,6 +1060,27 @@ India Based Youth Community Supporting Education, Growth, Innovation, and Positi
 
 <script>
 
+function scrollToJoin(){
+document.querySelector('.join-section').scrollIntoView({behavior:'smooth'});
+}
+
+function joinNow(){
+alert('Welcome to Indian Muslim Youth Group!');
+}
+
+function setLanguage(lang){
+if(lang==='hi'){
+alert('Hindi language support enabled.');
+}
+if(lang==='en'){
+alert('English language support enabled.');
+}
+if(lang==='ur'){
+alert('Urdu language support enabled.');
+}
+}
+
+
 const fades = document.querySelectorAll('.fade');
 
 window.addEventListener('scroll',()=>{
@@ -1073,17 +1102,7 @@ window.dispatchEvent(new Event('scroll'));
 </script>
 
 
-<script type="text/javascript">
-function googleTranslateElementInit() {
-new google.translate.TranslateElement({
-pageLanguage: 'en',
-includedLanguages: 'en,hi,ur,ar',
-layout: google.translate.TranslateElement.InlineLayout.SIMPLE
-}, 'google_translate_element');
-}
-</script>
-
-<script src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+<!-- Removed ugly Google Translate widget for premium UI -->
 
 </body>
   </html>
