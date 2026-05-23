@@ -655,18 +655,176 @@ transform:scale(1.08);
 </style>
 
 <nav>
+<div class="logo-area">
+<div class="logo-circle">
+☪
+</div>
+<div>
 <div class="logo">IMYG</div>
+<div class="logo-sub">Indian Muslim Youth Group</div>
+</div>
+</div>
 
-<ul>
-<li><a href="#home">Home</a></li>
-<li><a href="#about">About</a></li>
-<li><a href="#programs">Programs</a></li>
-<li><a href="#community">Community</a></li>
-<li><a href="#contact">Contact</a></li>
-</ul>
-
-<button class="nav-btn" onclick="scrollToJoin()">Join Community</button>
+<div class="menu-btn" onclick="openSidebar()">
+☰
+</div>
 </nav>
+
+<!-- SIDEBAR -->
+<div class="sidebar" id="sidebar">
+<div class="close-btn" onclick="closeSidebar()">✕</div>
+
+<div class="sidebar-logo">
+<div class="sidebar-icon">☪</div>
+<h2>IMYG</h2>
+<p>Indian Muslim Youth Group</p>
+</div>
+
+<a href="#home">Home</a>
+<a href="#about">About</a>
+<a href="#programs">Programs</a>
+<a href="#community">Community</a>
+<a href="#contact">Contact</a>
+
+<button class="sidebar-join" onclick="joinNow()">Join Community</button>
+</div>
+
+<style>
+
+.logo-area{
+display:flex;
+align-items:center;
+gap:14px;
+}
+
+.logo-circle{
+width:55px;
+height:55px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:26px;
+font-weight:700;
+background:linear-gradient(135deg,#138808,#ffffff,#FF9933);
+color:black;
+box-shadow:0 0 20px rgba(255,255,255,0.15);
+}
+
+.logo-sub{
+font-size:12px;
+color:#cfcfcf;
+margin-top:-4px;
+}
+
+.menu-btn{
+width:52px;
+height:52px;
+border-radius:14px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:24px;
+background:#0c1d17;
+cursor:pointer;
+transition:0.3s;
+}
+
+.menu-btn:hover{
+background:#00ff9d;
+color:black;
+}
+
+.sidebar{
+position:fixed;
+top:0;
+right:-350px;
+width:320px;
+height:100vh;
+background:rgba(3,10,8,0.98);
+backdrop-filter:blur(16px);
+z-index:99999;
+padding:30px;
+transition:0.5s;
+border-left:1px solid rgba(255,255,255,0.08);
+display:flex;
+flex-direction:column;
+}
+
+.sidebar.active{
+right:0;
+}
+
+.close-btn{
+font-size:28px;
+align-self:flex-end;
+cursor:pointer;
+margin-bottom:20px;
+}
+
+.sidebar-logo{
+text-align:center;
+margin-bottom:40px;
+}
+
+.sidebar-icon{
+width:90px;
+height:90px;
+margin:auto;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:40px;
+background:linear-gradient(135deg,#138808,#ffffff,#FF9933);
+color:black;
+margin-bottom:18px;
+}
+
+.sidebar-logo h2{
+font-size:32px;
+margin-bottom:6px;
+}
+
+.sidebar-logo p{
+color:#bfbfbf;
+font-size:14px;
+}
+
+.sidebar a{
+text-decoration:none;
+color:white;
+padding:16px 18px;
+border-radius:14px;
+margin-bottom:10px;
+background:#0b1d16;
+transition:0.3s;
+font-weight:500;
+}
+
+.sidebar a:hover{
+background:#00ff9d;
+color:black;
+transform:translateX(6px);
+}
+
+.sidebar-join{
+margin-top:auto;
+padding:16px;
+border:none;
+border-radius:18px;
+background:linear-gradient(135deg,#138808,#ffffff,#FF9933);
+font-size:16px;
+font-weight:800;
+cursor:pointer;
+}
+
+nav ul,
+.nav-btn{
+display:none !important;
+}
+
+</style>
 
 <section class="hero" id="home" style="background:linear-gradient(rgba(0,0,0,0.78),rgba(0,0,0,0.82)),url('https://images.unsplash.com/photo-1519817914152-22f90e0d9179?q=80&w=1600&auto=format&fit=crop') center/cover fixed no-repeat; position:relative;">
 <div style="position:absolute;inset:0;background:rgba(0,0,0,0.72);"></div>
@@ -1060,6 +1218,14 @@ India Based Youth Community Supporting Education, Growth, Innovation, and Positi
 
 <script>
 
+function openSidebar(){
+document.getElementById('sidebar').classList.add('active');
+}
+
+function closeSidebar(){
+document.getElementById('sidebar').classList.remove('active');
+}
+
 function scrollToJoin(){
 document.querySelector('.join-section').scrollIntoView({behavior:'smooth'});
 }
@@ -1105,4 +1271,4 @@ window.dispatchEvent(new Event('scroll'));
 <!-- Removed ugly Google Translate widget for premium UI -->
 
 </body>
-  </html>
+</html>
